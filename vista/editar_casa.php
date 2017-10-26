@@ -2,48 +2,51 @@
 <html lang="es">
 
 <head>
-  <title>Editar casa</title>
+  <title>Editar nuevo edificio</title>
   <meta charset="utf-8"/>
 </head>
 <body>
 <?php
 include "../modelo/datos_modelo.php";
-include '../controlador/casas_controlador.php';
 include '../controlador/edificios_controlador.php';
 
-if (isset($_GET['edificio'])) {
-  $controlador=new casas_controlador();
-  $controlador->registrar_casa($_GET['propietario'],$_GET['edificio'],$_GET['apartamento']);
-} else if (isset($_POST['edificio'])) {
-  $controlador=new casas_controlador();
-  $controlador->registrar_casa($_POST['propietario'],$_POST['edificio'],$_POST['apartamento']);
-} else {
-  ?>
-  <form action="editar_casa.php" method="post">
-    Propietario:<br>
-    <input type="text" name="propietario"> <br>
-    Edificio:<br>
-    <select name="edificio">
-      <?php
-        $controlador2=new edificios_controlador();
+if (isset($_GET['id'])|| isset($_POST['id'])) {
+  $controlador=new edificios_controlador();
+  $id='';
+  if (isset($_GET['id']))
+  {
+    $id=$_GET['id'];
+  }
+  else {
+    $id=$_POST['id'];
+  }
+  if (isset($_GET['propietario'])) {
 
-        $edificios=$controlador2->obtener_edificios();
-        foreach ($edificios as $key) {
-          echo '<option value="'.$key["id"].'">'.$key["nombre"].'</option>';
-        }
-      ?>
+    $controlador->editar_casa($_GET['propietario'],$_GET['apartamento'],$_GET['edificio'],$_GET['id']);
+  } else if (isset($_POST['propietario'])) {
+
+    $controlador->editar_casa($_POST['propietario'],$_POST['apartamento'],$_POST['edi'],$_POST['id']);
+  } else {
+      $ediret=$controlador->obtener_edificio($id);
+
+    ?>
+    <form action="editar_edificio.php" method="post">
+      Nombre:<br>
+      <input type="text" name="nombre" value="<?php echo( $ediret['nombre']); ?>"> <br>
+      Direccion:<br>
+      <input type="text" name="direccion" value="<?php echo( $ediret['direccion']); ?>"> <br>
+
+      <input type="hidden" name="id" value="<?php  echo $_GET["id"];?>"> <br>
+      <input type="submit" value="Editar">
 
 
-        </select>
-    <br>Apartamento:<br>
-    <input type="text" name="apartamento"> <br>
-
-    <input type="submit" value="Registrar">
-
-
-  <form>
-<?php
-}
+    <form>
+  <?php
+    }
+  }
+  else {
+    echo "Error,no hay edifio seleccionado";
+  }
 
  ?>
 </body>
