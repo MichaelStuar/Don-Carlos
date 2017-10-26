@@ -1,3 +1,3 @@
 <?php
-echo "error: ". $_GET["msj"];
+echo $_GET["msj"];
  ?>

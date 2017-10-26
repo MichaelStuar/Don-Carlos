@@ -27,6 +27,17 @@ class usuarios_controlador
       //header('Location: ../vista/mensajes.php?msj=Usuario Editado' );
     }
   }
+
+    function obtener_usuario($id)
+    {
+        $modelo=new datos_modelo();
+        return $modelo->obtener_usuario($id);
+    }
+    function obtener_usuarios()
+      {
+          $modelo=new datos_modelo();
+          return $modelo->obtener_usuarios();
+      }
 }
 
 

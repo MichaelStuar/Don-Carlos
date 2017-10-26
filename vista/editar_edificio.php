@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <title>Registrar nuevo edificio</title>
+  <title>Editar nuevo edificio</title>
   <meta charset="utf-8"/>
 </head>
 <body>

@@ -110,6 +110,38 @@ class datos_modelo
             }
           }
       }
+      public function obtener_casa($id)
+      {
+
+        $mysql=new conexion();
+        $sql="SELECT * FROM `casas` WHERE `casas`.`id` =".$id." ;";
+        $con=$mysql->conectar();
+        $resultado= mysqli_query($con,$sql);
+
+
+        if ($resultado->num_rows > 0) {
+          while($row = $resultado->fetch_assoc()) {
+                $c = array( "propietario" => $row["propietario"], "edificio" => $row["edificio"], "id" => $row["id"], "apartamento" => $row["apartamento"]);
+                return $c;
+            }
+          }
+      }
+      public function obtener_usuario($id)
+      {
+
+        $mysql=new conexion();
+        $sql="SELECT * FROM `usuarios` WHERE `usuarios`.`id` =".$id." ;";
+        $con=$mysql->conectar();
+        $resultado= mysqli_query($con,$sql);
+
+
+        if ($resultado->num_rows > 0) {
+          while($row = $resultado->fetch_assoc()) {
+                $c = array( "nombre" => $row["nombre"], "direccion" => $row["direccion"], "id" => $row["id"], "administrador" => $row["administrador"]);
+                return $c;
+            }
+          }
+      }
       public function obtener_usuarios()
       {
         $mysql=new conexion();
@@ -121,7 +153,7 @@ class datos_modelo
         if ($resultado->num_rows > 0) {
             // Esto hay que arreglarlo
             while($row = $resultado->fetch_assoc()) {
-                $c = array( "nombre" => $row["nombre"], "direccion" => $row["direccion"], "id" => $row["id"], "administrador" => $row["administrador"]);
+                $c = array( "nombre" => $row["nombre"], "telefono" => $row["telefono"], "edificio" => $row["edificio"], "id" => $row["id"], "doc_id" => $row["doc_id"], "contrasenia" => $row["contrasenia"]);
                 array_push ($nLista,$c);
             }
         }
