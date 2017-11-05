@@ -46,7 +46,21 @@ if (true) {
     echo(count($cuentas));
         foreach ($cuentas as $cuenta) {
             echo '<tr>';
-                echo '<th>'.$cuenta["edificio"].'</th>';
+                echo '<th>';
+                    
+                    
+                    
+                    $controlador2=new edificios_controlador();
+
+                    $edificios=$controlador2->obtener_edificios();
+                    foreach ($edificios as $key) {
+                        if($cuenta["edificio"] == $key["id"])
+                      echo ($key["nombre"]);
+                    }
+                    
+                    
+                echo '</th>';
+            
                 echo '<th>'.$cuenta["apartamento"].'</th>';
                 echo '<th>'.$cuenta["factura"].'</th>';
                 echo '<th>'.$cuenta["pendiente"].'</th>';
@@ -86,12 +100,7 @@ if (true) {
     Edificio:<br>
     <select name="edificio">
       <?php
-        $controlador2=new edificios_controlador();
-
-        $edificios=$controlador2->obtener_edificios();
-        foreach ($edificios as $key) {
-          echo '<option value="'.$key["id"].'">'.$key["nombre"].'</option>';
-        }
+        
       ?>
     </select><br>
 
