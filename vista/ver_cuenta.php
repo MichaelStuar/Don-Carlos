@@ -44,18 +44,20 @@ if (true) {
 
         $cuentas = $controlador_cuentas->obtener_cuentas();
     echo(count($cuentas));
+    
+        $controlador2=new edificios_controlador();
+        $edificios=$controlador2->obtener_edificios();
+    
         foreach ($cuentas as $cuenta) {
             echo '<tr>';
                 echo '<th>';
                     
                     
                     
-                    $controlador2=new edificios_controlador();
-
-                    $edificios=$controlador2->obtener_edificios();
                     foreach ($edificios as $key) {
-                        if($cuenta["edificio"] == $key["id"])
-                      echo ($key["nombre"]);
+                        if($cuenta["edificio"] == $key["id"]){
+                            echo ($key["nombre"]);
+                        }
                     }
                     
                     
