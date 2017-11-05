@@ -77,6 +77,24 @@ class datos_modelo
         echo $sql;
         mysqli_query($con,$sql);
       }
+      public function obtener_cuentas()
+      {
+        $mysql=new conexion();
+        $sql="SELECT * FROM `cuentas`";
+        $con=$mysql->conectar();
+        $resultado= mysqli_query($con,$sql);
+
+        $nLista = array();
+
+        if ($resultado->num_rows > 0) {
+
+            while($row = $resultado->fetch_assoc()) {
+                $c = array( "edificio" => $row["edificio"], "apartamento" => $row["apartamento"], "factura" => $row["factura"], "pendiente" => $row["pendiente"], "int_pendiente" => $row["int_pendiente"], "otros_pendiente" => $row["otros_pendiente"], "extra_pendiente" => $row["extra_pendiente"], "multa_pendiente" => $row["multa_pendiente"], "servicios_publicos_pendiente" => $row["servicios_publicos_pendiente"], "servicios_pendiente" => $row["servicios_pendiente"], "actual" => $row["actual"], "interes_actual" => $row["interes_actual"], "otros_actual" => $row["otros_actual"], "extra_actual" => $row["extra_actual"], "multa_actual" => $row["multa_actual"], "servicios_publicos_actual" => $row["servicios_publicos_actual"], "servicios_actual" => $row["servicios_actual"], "ndnc_actual" => $row["ndnc_actual"], "usuario" => $row["usuario"]);
+                array_push ($nLista,$c);
+            }
+        }
+        return $nLista;
+      }
 
       function editar_usuario($nombre,$telefono,$contra,$edificio,$tipo,$doc_id,$id)
       {
