@@ -12,34 +12,6 @@ include "../modelo/datos_modelo.php";
 include '../controlador/cuentas_controlador.php';
 include '../controlador/edificios_controlador.php';
 
-
-
-                                      /*(`edificio`,
-                                        `apartamento`,
-                                        `factura`,
-                                        `pendiente`,
-                                        `int_pendiente`,
-                                        `otros_pendiente`,
-                                        `extra_pendiente`,
-                                        `multa_pendiente`,
-                                        `servicios_publicos_pendiente`,
-                                        `servicios_pendiente`,
-                                        `ndnc_pendiente`,
-                                        `actual`,
-                                        `interes_actual`,
-                                        `otros_actual`,
-                                        `extra_actual`,
-                                        `multa_actual`,
-                                        `servicios_publicos_actual`,
-                                        `servicios_actual`,
-                                        `ndnc_actual`,
-                                        `usuario`)*/
-
-
-
-
-
-
 if (isset($_GET['edificio'])) {
   $controlador=new cuenta_controlador();
   $controlador->crear_cuenta(
@@ -64,12 +36,12 @@ if (isset($_GET['edificio'])) {
     $_GET['ndnc_actual'],
     $_GET['usuario']);
 } else if (isset($_POST['edificio'])) {
-  $controlador=new usuarios_controlador();
+  $controlador=new cuentas_controlador();
   $controlador->crear_cuenta($_POST['edificio'],$_POST['apartamento'],$_POST['factura'],$_POST['pendiente'],$_POST['int_pendiente'],$_POST['otros_pendiente'],$_POST['extra_pendiente'],$_POST['multa_pendiente'],$_POST['servicios_publicos_pendiente'],$_POST['servicios_pendiente'],
     $_POST['ndnc_pendiente'],$_POST['actual'],$_POST['interes_actual'],$_POST['otros_actual'],$_POST['extra_actual'],$_POST['multa_actual'],$_POST['servicios_publicos_actual'],$_POST['servicios_actual'],$_POST['ndnc_actual'],$_POST['usuario']);
 } else {
   ?>
-  <form action="crear_cuenta.php" method="post">
+  <form action="registrar_cuenta.php" method="post">
     Edificio:<br>
     <select name="edificio">
       <?php
@@ -105,10 +77,6 @@ if (isset($_GET['edificio'])) {
     <input type="text" name="actual"> <br>
     Interes actual:<br>
     <input type="text" name="interes_actual"> <br>
-    Otros actual:<br>
-    <input type="text" name="otros_actual"> <br>
-    Extra actual:<br>
-    <input type="text" name="extra_actual"> <br>
     Otros actual:<br>
     <input type="text" name="otros_actual"> <br>
     Extra_actual:<br>
