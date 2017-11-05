@@ -65,7 +65,7 @@ if (true) {
                 echo '<th>'.$cuenta["servicios_publicos_actual"].'</th>';
                 echo '<th>'.$cuenta["servicios_actual"].'</th>';
                 echo '<th>'.$cuenta["ndnc_actual"].'</th>';
-                echo '<th>'.$cuenta["usuari"].'</th>';
+                echo '<th>'.$cuenta["usuario"].'</th>';
             echo '</tr>';
         }
     
