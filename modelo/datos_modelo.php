@@ -48,6 +48,36 @@ class datos_modelo
         echo $sql;
         mysqli_query($con,$sql);
       }
+
+      function crear_cuenta($edificio,$apartamento,$factura,$pendiente,$int_pendiente,$otros_pendiente,$extra_pendiente,$multa_pendiente,$servicios_publicos_pendiente,$servicios_pendiente,$ndnc_pendiente,$actual,$interes_actual,$otros_actual,$extra_actual,$multa_actual,$servicios_publicos_actual,$servicios_actual,$ndnc_actual,$usuario)
+      {
+        $mysql=new conexion();
+        $sql="INSERT INTO `cuentas`
+          (`edificio`,
+            `apartamento`,
+            `factura`,
+            `pendiente`,
+            `int_pendiente`,
+            `otros_pendiente`,
+            `extra_pendiente`,
+            `multa_pendiente`,
+            `servicios_publicos_pendiente`,
+            `servicios_pendiente`,
+            `ndnc_pendiente`,
+            `actual`,
+            `interes_actual`,
+            `otros_actual`,
+            `extra_actual`,
+            `multa_actual`,
+            `servicios_publicos_actual`,
+            `servicios_actual`,
+            `ndnc_actual`,
+            `usuario`) VALUES ('".$edificio."', '".$apartamento."', '".$factura."', '".$pendiente."', '".$int_pendiente."', '".$otros_pendiente."', '".$extra_pendiente."', '".$multa_pendiente."', '".$servicios_publicos_pendiente."', '".$servicios_pendiente."', '".$ndnc_pendiente."', '".$actual."', '".$interes_actual."', '".$otros_actual."',  '".$extra_actual."',  '".$multa_actual."', '".$servicios_publicos_actual."',  '".$servicios_actual."',   '".$ndnc_actual."', '".$usuario."');";
+        $con=$mysql->conectar();
+        echo $sql;
+        mysqli_query($con,$sql);
+      }
+
       function editar_usuario($nombre,$telefono,$contra,$edificio,$tipo,$doc_id,$id)
       {
         $mysql=new conexion();
