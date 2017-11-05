@@ -89,7 +89,65 @@ class datos_modelo
         if ($resultado->num_rows > 0) {
 
             while($row = $resultado->fetch_assoc()) {
-                $c = array( "edificio" => $row["edificio"], "apartamento" => $row["apartamento"], "factura" => $row["factura"], "pendiente" => $row["pendiente"], "int_pendiente" => $row["int_pendiente"], "otros_pendiente" => $row["otros_pendiente"], "extra_pendiente" => $row["extra_pendiente"], "multa_pendiente" => $row["multa_pendiente"], "servicios_publicos_pendiente" => $row["servicios_publicos_pendiente"], "servicios_pendiente" => $row["servicios_pendiente"], "actual" => $row["actual"], "interes_actual" => $row["interes_actual"], "otros_actual" => $row["otros_actual"], "extra_actual" => $row["extra_actual"], "multa_actual" => $row["multa_actual"], "servicios_publicos_actual" => $row["servicios_publicos_actual"], "servicios_actual" => $row["servicios_actual"], "ndnc_actual" => $row["ndnc_actual"], "usuario" => $row["usuario"]);
+                $c = array(
+                    "edificio" => $row["edificio"],
+                    "apartamento" => $row["apartamento"],
+                    "factura" => $row["factura"],
+                    "pendiente" => $row["pendiente"],
+                    "int_pendiente" => $row["int_pendiente"],
+                    "otros_pendiente" => $row["otros_pendiente"],
+                    "extra_pendiente" => $row["extra_pendiente"],
+                    "multa_pendiente" => $row["multa_pendiente"],
+                    "servicios_publicos_pendiente" => $row["servicios_publicos_pendiente"],
+                    "servicios_pendiente" => $row["servicios_pendiente"],
+                    "ndnc_pendiente"=> $row["ndnc_pendiente"],
+                    "actual" => $row["actual"],
+                    "interes_actual" => $row["interes_actual"],
+                    "otros_actual" => $row["otros_actual"],
+                    "extra_actual" => $row["extra_actual"],
+                    "multa_actual" => $row["multa_actual"],
+                    "servicios_publicos_actual" => $row["servicios_publicos_actual"],
+                    "servicios_actual" => $row["servicios_actual"],
+                    "ndnc_actual" => $row["ndnc_actual"],
+                    "usuario" => $row["usuario"]);
+                array_push ($nLista,$c);
+            }
+        }
+        return $nLista;
+      }
+      public function obtener_cuentas_pendientes()
+      {
+        $mysql=new conexion();
+        $sql="SELECT * FROM `cuentas`  WHERE `cuentas`.`pendiente` >0 ORDER BY  `cuentas`.`pendiente` DESC;";
+        $con=$mysql->conectar();
+        $resultado= mysqli_query($con,$sql);
+
+        $nLista = array();
+
+        if ($resultado->num_rows > 0) {
+
+            while($row = $resultado->fetch_assoc()) {
+                $c = array(
+                    "edificio" => $row["edificio"],
+                    "apartamento" => $row["apartamento"],
+                    "factura" => $row["factura"],
+                    "pendiente" => $row["pendiente"],
+                    "int_pendiente" => $row["int_pendiente"],
+                    "otros_pendiente" => $row["otros_pendiente"],
+                    "extra_pendiente" => $row["extra_pendiente"],
+                    "multa_pendiente" => $row["multa_pendiente"],
+                    "servicios_publicos_pendiente" => $row["servicios_publicos_pendiente"],
+                    "servicios_pendiente" => $row["servicios_pendiente"],
+                    "ndnc_pendiente"=> $row["ndnc_pendiente"],
+                    "actual" => $row["actual"],
+                    "interes_actual" => $row["interes_actual"],
+                    "otros_actual" => $row["otros_actual"],
+                    "extra_actual" => $row["extra_actual"],
+                    "multa_actual" => $row["multa_actual"],
+                    "servicios_publicos_actual" => $row["servicios_publicos_actual"],
+                    "servicios_actual" => $row["servicios_actual"],
+                    "ndnc_actual" => $row["ndnc_actual"],
+                    "usuario" => $row["usuario"]);
                 array_push ($nLista,$c);
             }
         }
@@ -103,6 +161,22 @@ class datos_modelo
         $con=$mysql->conectar();
         echo $sql;
         mysqli_query($con,$sql);
+      }
+
+      function obtener_usuario_docId($doc_id)
+      {
+        $mysql=new conexion();
+        $sql="SELECT * FROM `usuarios`WHERE `usuarios`.`doc_id` ='".$doc_id."' ;";
+        $con=$mysql->conectar();
+        $resultado= mysqli_query($con,$sql);
+
+        if ($resultado->num_rows > 0) {
+          while($row = $resultado->fetch_assoc()) {
+                $c = array( "id" => $row["id"], "nombre" => $row["nombre"], "telefono" => $row["telefono"], "edificio" => $row["edificio"], "contrasenia" => $row["contrasenia"], "doc_id" => $row["doc_id"]);
+                return $c;
+            }
+          }
+
       }
 
 

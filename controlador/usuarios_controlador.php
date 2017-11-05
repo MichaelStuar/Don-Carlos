@@ -38,6 +38,15 @@ class usuarios_controlador
           $modelo=new datos_modelo();
           return $modelo->obtener_usuarios();
       }
+
+      function login($doc_id,$contrasenia){
+          $modelo=new datos_modelo();
+          $usuario=$modelo->obtener_usuario_docId($doc_id);
+          if ($contrasenia!=$usuario["contrasenia"]) {
+            echo "Error,contraseña erronea";
+          }
+
+      }
 }
 
 

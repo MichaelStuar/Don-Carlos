@@ -55,6 +55,12 @@ function obtener_cuentas()
     return $modelo->obtener_cuentas();
 }
 
+function obtener_cuentas_pendientes()
+{
+    $modelo=new datos_modelo();
+    return $modelo->obtener_cuentas_pendientes();
+}
+
 
 }
 

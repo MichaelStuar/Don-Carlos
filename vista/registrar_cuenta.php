@@ -13,7 +13,7 @@ include '../controlador/cuentas_controlador.php';
 include '../controlador/edificios_controlador.php';
 
 if (isset($_GET['edificio'])) {
-  $controlador=new cuenta_controlador();
+  $controlador=new cuentas_controlador();
   $controlador->crear_cuenta(
     $_GET['edificio'],
     $_GET['apartamento'],
@@ -35,7 +35,8 @@ if (isset($_GET['edificio'])) {
     $_GET['servicios_actual'],
     $_GET['ndnc_actual'],
     $_GET['usuario']);
-} else if (isset($_POST['edificio'])) {
+
+    
   $controlador=new cuentas_controlador();
   $controlador->crear_cuenta($_POST['edificio'],$_POST['apartamento'],$_POST['factura'],$_POST['pendiente'],$_POST['int_pendiente'],$_POST['otros_pendiente'],$_POST['extra_pendiente'],$_POST['multa_pendiente'],$_POST['servicios_publicos_pendiente'],$_POST['servicios_pendiente'],
     $_POST['ndnc_pendiente'],$_POST['actual'],$_POST['interes_actual'],$_POST['otros_actual'],$_POST['extra_actual'],$_POST['multa_actual'],$_POST['servicios_publicos_actual'],$_POST['servicios_actual'],$_POST['ndnc_actual'],$_POST['usuario']);
