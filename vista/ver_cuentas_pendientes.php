@@ -16,7 +16,7 @@ if (true) {
     
     
     $controlador_cuentas = new cuentas_controlador();
-    $cuentas = $controlador_cuentas->obtener_cuentas();
+    $cuentas = $controlador_cuentas->obtener_cuentas_pendientes();
     $controlador2=new edificios_controlador();
     $edificios=$controlador2->obtener_edificios();
     
@@ -51,15 +51,11 @@ if (true) {
         foreach ($cuentas as $cuenta) {
             echo '<tr>';
                 echo '<th>';
-                    
-                    
-                    
                     foreach ($edificios as $key) {
                         if($cuenta["edificio"] == $key["id"]){
                             echo ($key["nombre"]);
                         }
                     }
-                    
                     
                 echo '</th>';
             
