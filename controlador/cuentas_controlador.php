@@ -62,7 +62,14 @@ function obtener_cuentas_pendientes()
 }
 
 
+function formatear_a_dinero($cuanto){
+    $formatter = new NumberFormatter('en_US',  NumberFormatter::CURRENCY);
+    $cosa =  $formatter->formatCurrency($cuanto, 'USD');
+    return($cosa);
 }
+    
+}
+
 
 
  ?>

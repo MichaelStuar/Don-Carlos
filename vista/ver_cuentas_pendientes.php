@@ -20,8 +20,152 @@ if (true) {
     $controlador2=new edificios_controlador();
     $edificios=$controlador2->obtener_edificios();
     
-    echo('Número de registros: '.count($cuentas).'</br>');
+    //echo('Número de registros: '.count($cuentas).'</br>');
     
+    $mes_0 = array();
+    $mes_1 = array();
+    $mes_2 = array();
+    $mes_3 = array();
+    foreach($cuentas as $cuenta){
+        $meses_pendientes=$cuenta["pendiente"] / $cuenta["actual"];
+        $meses_pendientes=round($meses_pendientes);
+        if($meses_pendientes<1){
+            array_push($mes_0,$cuenta);
+        }else if($meses_pendientes<2){
+            array_push($mes_1,$cuenta);
+        }else if($meses_pendientes<3){
+            array_push($mes_2,$cuenta);
+        }else{
+            array_push($mes_3,$cuenta);
+        }
+    }
+    echo "Cuentas pendientes a menos de 30 días</br>";
+    echo '<table style="width:100%"><tr><th>Apartamento</th> 
+        <th>Factura</th>
+        <th>Pendiente</th>
+        <th>Interes pendiente</th>
+        <th>Otros peniente</th>
+        <th>Extra pendiente</th>
+        <th>Multa pendiente</th>
+        <th>Servicios publicos pendientes</th>
+        <th>Servicios pendientes</th>
+        <th>NDNC pendiente</th>
+        </tr>';
+
+    foreach($mes_0 as $cuenta)
+    {
+        echo '<tr>';
+            echo '<th>'.$cuenta["apartamento"].'</th>';
+            echo '<th>'.$cuenta["factura"].'</th>';
+        
+            echo '<th>'.$controlador_cuentas->formatear_a_dinero($cuenta["pendiente"]).'</th>';
+        
+            echo '<th>'.$cuenta["int_pendiente"].'</th>';
+            echo '<th>'.$cuenta["otros_pendiente"].'</th>';
+            echo '<th>'.$cuenta["extra_pendiente"].'</th>';
+            echo '<th>'.$cuenta["multa_pendiente"].'</th>';
+            echo '<th>'.$cuenta["servicios_publicos_pendiente"].'</th>';
+            echo '<th>'.$cuenta["servicios_pendiente"].'</th>';
+            echo '<th>'.$cuenta["ndnc_pendiente"].'</th>';
+        echo '</tr>';
+    }
+    echo '</table> </br> </br>';
+    
+    
+    echo "Cuentas pendientes a 30 días</br>";
+    echo '<table style="width:100%"><tr><th>Apartamento</th> 
+        <th>Factura</th>
+        <th>Pendiente</th>
+        <th>Interes pendiente</th>
+        <th>Otros peniente</th>
+        <th>Extra pendiente</th>
+        <th>Multa pendiente</th>
+        <th>Servicios publicos pendientes</th>
+        <th>Servicios pendientes</th>
+        <th>NDNC pendiente</th>
+        </tr>';
+
+    foreach($mes_1 as $cuenta)
+    {
+        echo '<tr>';
+            echo '<th>'.$cuenta["apartamento"].'</th>';
+            echo '<th>'.$cuenta["factura"].'</th>';
+            echo '<th>'.$controlador_cuentas->formatear_a_dinero($cuenta["pendiente"]).'</th>';
+            echo '<th>'.$cuenta["int_pendiente"].'</th>';
+            echo '<th>'.$cuenta["otros_pendiente"].'</th>';
+            echo '<th>'.$cuenta["extra_pendiente"].'</th>';
+            echo '<th>'.$cuenta["multa_pendiente"].'</th>';
+            echo '<th>'.$cuenta["servicios_publicos_pendiente"].'</th>';
+            echo '<th>'.$cuenta["servicios_pendiente"].'</th>';
+            echo '<th>'.$cuenta["ndnc_pendiente"].'</th>';
+        echo '</tr>';
+    }
+    echo '</table> </br> </br>';
+    
+    
+    echo "Cuentas pendientes a 60 días</br>";
+    echo '<table style="width:100%"><tr><th>Apartamento</th> 
+        <th>Factura</th>
+        <th>Pendiente</th>
+        <th>Interes pendiente</th>
+        <th>Otros peniente</th>
+        <th>Extra pendiente</th>
+        <th>Multa pendiente</th>
+        <th>Servicios publicos pendientes</th>
+        <th>Servicios pendientes</th>
+        <th>NDNC pendiente</th>
+        </tr>';
+
+    foreach($mes_2 as $cuenta)
+    {
+        echo '<tr>';
+            echo '<th>'.$cuenta["apartamento"].'</th>';
+            echo '<th>'.$cuenta["factura"].'</th>';
+            echo '<th>'.$controlador_cuentas->formatear_a_dinero($cuenta["pendiente"]).'</th>';
+            echo '<th>'.$cuenta["int_pendiente"].'</th>';
+            echo '<th>'.$cuenta["otros_pendiente"].'</th>';
+            echo '<th>'.$cuenta["extra_pendiente"].'</th>';
+            echo '<th>'.$cuenta["multa_pendiente"].'</th>';
+            echo '<th>'.$cuenta["servicios_publicos_pendiente"].'</th>';
+            echo '<th>'.$cuenta["servicios_pendiente"].'</th>';
+            echo '<th>'.$cuenta["ndnc_pendiente"].'</th>';
+        echo '</tr>';
+    }
+    echo '</table> </br> </br>';
+    
+    
+    echo "Cuentas pendientes a 90 días o más</br>";
+    echo '<table style="width:100%"><tr><th>Apartamento</th> 
+        <th>Factura</th>
+        <th>Pendiente</th>
+        <th>Interes pendiente</th>
+        <th>Otros peniente</th>
+        <th>Extra pendiente</th>
+        <th>Multa pendiente</th>
+        <th>Servicios publicos pendientes</th>
+        <th>Servicios pendientes</th>
+        <th>NDNC pendiente</th>
+        </tr>';
+
+    foreach($mes_3 as $cuenta)
+    {
+        echo '<tr>';
+            echo '<th>'.$cuenta["apartamento"].'</th>';
+            echo '<th>'.$cuenta["factura"].'</th>';
+            echo '<th>'.$controlador_cuentas->formatear_a_dinero($cuenta["pendiente"]).'</th>';
+            echo '<th>'.$cuenta["int_pendiente"].'</th>';
+            echo '<th>'.$cuenta["otros_pendiente"].'</th>';
+            echo '<th>'.$cuenta["extra_pendiente"].'</th>';
+            echo '<th>'.$cuenta["multa_pendiente"].'</th>';
+            echo '<th>'.$cuenta["servicios_publicos_pendiente"].'</th>';
+            echo '<th>'.$cuenta["servicios_pendiente"].'</th>';
+            echo '<th>'.$cuenta["ndnc_pendiente"].'</th>';
+        echo '</tr>';
+    }
+    echo '</table> </br> </br>';
+    
+    
+    /*
   ?>
     <table style="width:100%">
         <tr>
@@ -47,6 +191,7 @@ if (true) {
             <th>Usuario</th>
         </tr>
         <?php 
+    
     
         foreach ($cuentas as $cuenta) {
             echo '<tr>';
@@ -81,7 +226,6 @@ if (true) {
             echo '</tr>';
         }
     
-    
         ?>    
         
     
@@ -96,6 +240,7 @@ if (true) {
     <br>
 
 <?php
+    */
 }
 
  ?>
