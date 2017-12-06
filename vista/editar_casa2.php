@@ -1,12 +1,5 @@
-<!DOCTIPE html>
-<html lang="es">
-
-<head>
-  <title>Editar casa</title>
-  <meta charset="utf-8"/>
-</head>
-<body>
 <?php
+include "../vista/header.php";
 include "../modelo/datos_modelo.php";
 include '../controlador/edificios_controlador.php';
 include '../controlador/casas_controlador.php';
@@ -35,9 +28,7 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
       $ediret=$controlador2->obtener_casa($id);
 
     ?>
-
     <form action="editar_casa.php" method="post">
-      Propietario:<br>
       <select name="propietario">
         <?php
           $controlador3=new usuarios_controlador();
@@ -53,9 +44,8 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
 
           }
         ?>
-
       </select>
-      <br>Apartamento:<br>
+      Apartamento:<br>
       <input type="text" name="apartamento" value="<?php echo( $ediret['apartamento']); ?>"> <br>
       Edificio:<br>
       <select name="edificio">
@@ -87,5 +77,5 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
     echo "Error,no hay casa seleccionado";
   }
 
+include "../vista/footer.php";
  ?>
-</body>
