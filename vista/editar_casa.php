@@ -1,12 +1,5 @@
-<!DOCTIPE html>
-<html lang="es">
-
-<head>
-  <title>Editar nuevo edificio</title>
-  <meta charset="utf-8"/>
-</head>
-<body>
 <?php
+include "../vista/header.php";
 include "../modelo/datos_modelo.php";
 include '../controlador/edificios_controlador.php';
 include '../controlador/casas_controlador.php';
@@ -84,5 +77,5 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
     echo "Error,no hay casa seleccionado";
   }
 
+include "../vista/footer.php";
  ?>
-</body>
