@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <title>Editar nuevo edificio</title>
+  <title>Editar casa</title>
   <meta charset="utf-8"/>
 </head>
 <body>
@@ -35,7 +35,9 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
       $ediret=$controlador2->obtener_casa($id);
 
     ?>
+
     <form action="editar_casa.php" method="post">
+      Propietario:<br>
       <select name="propietario">
         <?php
           $controlador3=new usuarios_controlador();
@@ -51,8 +53,9 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
 
           }
         ?>
+
       </select>
-      Apartamento:<br>
+      <br>Apartamento:<br>
       <input type="text" name="apartamento" value="<?php echo( $ediret['apartamento']); ?>"> <br>
       Edificio:<br>
       <select name="edificio">

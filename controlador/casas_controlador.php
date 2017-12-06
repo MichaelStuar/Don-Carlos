@@ -13,6 +13,11 @@ class casas_controlador
         $modelo=new datos_modelo();
         return $modelo->obtener_casa($id);
     }
+    function editar_casa($propietario,$apartamento,$edificio,$id){
+      $modelo=new datos_modelo();
+      $modelo->editar_casa($propietario,$apartamento,$edificio,$id);
+      //header('Location: ../vista/mensajes.php?msj=edificio editado' );
+    }
 
 }
 

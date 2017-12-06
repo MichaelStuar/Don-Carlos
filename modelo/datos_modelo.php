@@ -20,13 +20,12 @@ class datos_modelo
     mysqli_query($con,$sql);
     echo "$sql";
 
-  }function editar_casa($propietario,$edificio,$apartamentp,$id)
+  }function editar_casa($propietario,$apartamento,$edificio,$id)
   {
     $mysql=new conexion();
     $sql="UPDATE `casas` SET `propietario`='".$propietario."', `edificio`='".$edificio."', `apartamento`='".$apartamento."' WHERE `casas`.`id` =".$id.";";
     $con=$mysql->conectar();
     mysqli_query($con,$sql);
-    echo "$sql";
 
   }
 
