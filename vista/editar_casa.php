@@ -1,4 +1,5 @@
 <?php
+
 include "../vista/header.php";
 include "../modelo/datos_modelo.php";
 include '../controlador/edificios_controlador.php';
@@ -28,8 +29,15 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
       $ediret=$controlador2->obtener_casa($id);
 
     ?>
+
+    <div class="container text-center">
+
+
+<div  style="background:white; margin:auto auto; margin-top:30px; padding:10px;" class="col-lg-4 col-lg-offset-4 ">
+  <p class="h1"> Editar casa</p>
     <form action="editar_casa.php" method="post">
-      <select name="propietario">
+      Propietario:<br>
+      <select name="propietario" class="form-control">
         <?php
           $controlador3=new usuarios_controlador();
 
@@ -44,11 +52,12 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
 
           }
         ?>
+
       </select>
-      Apartamento:<br>
-      <input type="text" name="apartamento" value="<?php echo( $ediret['apartamento']); ?>"> <br>
+      <br>Apartamento:<br>
+      <input type="text"class="form-control" name="apartamento" value="<?php echo( $ediret['apartamento']); ?> "> <br>
       Edificio:<br>
-      <select name="edificio">
+      <select name="edificio" class="form-control">
         <?php
           $controlador2=new edificios_controlador();
 
@@ -65,11 +74,13 @@ if (isset($_GET['id'])|| isset($_POST['id'])) {
         ?>
       </select>
 
-      <input type="hidden" name="id" value="<?php  echo $_GET["id"];?>"> <br>
-      <input type="submit" value="Editar">
+      <input type="hidden" name="id" value="<?php  echo $_GET["id"];?>" class="form-control"> <br>
+      <input type="submit" value="Editar"  class="btn btn-default btn-lg btn-block">
 
 
     <form>
+    </div>
+</div>
   <?php
     }
   }

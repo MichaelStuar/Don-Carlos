@@ -1,12 +1,6 @@
-<!DOCTIPE html>
-<html lang="es">
 
-<head>
-  <title>Registrar nuevo edificio</title>
-  <meta charset="utf-8"/>
-</head>
-<body>
 <?php
+include "../vista/header.php";
 include "../modelo/datos_modelo.php";
 include '../controlador/edificios_controlador.php';
 
@@ -18,18 +12,25 @@ if (isset($_GET['nombre'])) {
   $controlador->registrar_edificio($_POST['nombre'],$_POST['direccion']);
 } else {
   ?>
+  <div class="container text-center">
+
+
+<div  style="background:white; margin:auto auto; margin-top:30px; padding:10px;" class="col-lg-4 col-lg-offset-4 ">
+<p class="h1"> Registrar edificios</p>
   <form action="registrar_edificios.php" method="post">
     Nombre:<br>
-    <input type="text" name="nombre"> <br>
+    <input type="text" class="form-control"name="nombre"> <br>
     direccion:<br>
-    <input type="text" name="direccion"> <br>
+    <input type="text" class="form-control"name="direccion"> <br>
 
-    <input type="submit" value="Registrar">
+    <input type="submit"class="btn btn-default btn-lg btn-block" value="Registrar">
 
 
   <form>
+  </div>
+</div>
 <?php
 }
-
+include "../vista/footer.php";
  ?>
 </body>
