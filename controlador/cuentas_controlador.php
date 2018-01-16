@@ -59,7 +59,14 @@ function obtener_cuentas_pendientes()
 {
     $modelo=new datos_modelo();
     return $modelo->obtener_cuentas_pendientes();
-}
+
+  }
+  function obtener_cuentas_pendientes_de($apartamento,$edificio)
+  {
+      $modelo=new datos_modelo();
+      return $modelo->obtener_cuentas_pendientes_de($apartamento,$edificio);
+
+    }
 
 
 function formatear_a_dinero($cuanto){

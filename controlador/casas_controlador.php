@@ -8,6 +8,11 @@ class casas_controlador
         $modelo->crear_casa($propietario,$edificio,$apartamento);
         header('Location: ../vista/mensajes.php?msj=casa registrado' );
     }
+    function obtener_casas_de($id)
+    {
+        $modelo=new datos_modelo();
+        return $modelo->obtener_casas_de($id);
+    }
     function obtener_casa($id)
     {
         $modelo=new datos_modelo();
