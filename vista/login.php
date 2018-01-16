@@ -21,8 +21,8 @@ if (isset($_GET['doc_id'])) {
   <form action="login.php" method="post">
   Documento de identidad:<br>
     <input type="text" class="form-control"name="doc_id"> <br>
-    Contraseña:<br>
-    <input type="text"class="form-control" name="contrasenia"> <br>
+    Contraseña2:<br>
+    <input class="form-control" name="contrasenia" type="password"> <br>
 
     <input type="submit"class="btn btn-default btn-lg btn-block" value="Login">
 

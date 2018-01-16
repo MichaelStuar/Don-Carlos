@@ -12,7 +12,7 @@ if (isset($_GET['nombre'])) {
   $controlador->registrar_edificio($_POST['nombre'],$_POST['direccion']);
 } else {
   ?>
-  <div class="container text-center">
+<div class="container text-center">
 
 
 <div  style="background:white; margin:auto auto; margin-top:30px; padding:10px;" class="col-lg-4 col-lg-offset-4 ">

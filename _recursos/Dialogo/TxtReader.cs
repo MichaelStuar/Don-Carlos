@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
-using System.IO; 
+using System.IO;
 using System.Text.RegularExpressions;
 using System;
 
@@ -87,7 +87,7 @@ public class TxtReader : MonoBehaviour {
 		List<string> listaRetornar = new List<string> ();
 		for (int i = 0; i < listaNoRetornar.Count; i++) {
 			bool a = false;
-			for (int j = 0; j < listaRetornar.Count; j++) 
+			for (int j = 0; j < listaRetornar.Count; j++)
 			{
 				a = a | (listaNoRetornar [i] == listaRetornar [j]);
 			}

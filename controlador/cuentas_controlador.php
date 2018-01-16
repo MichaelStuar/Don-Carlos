@@ -46,7 +46,7 @@ $modelo->crear_cuenta(
   $servicios_actual,
   $ndnc_actual,
   $usuario);
-header('Location: ../vista/mensajes.php?msj=cuenta registrada' );
+header('Location: ../vista/mensajes2.php?msj=142' );
 
 }
 function obtener_cuentas()
@@ -67,7 +67,7 @@ function formatear_a_dinero($cuanto){
     $cosa =  $formatter->formatCurrency($cuanto, 'USD');
     return($cosa);
 }
-    
+
 }
 
 
