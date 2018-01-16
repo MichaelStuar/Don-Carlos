@@ -52,6 +52,7 @@ if (isset($_GET['nombre'])) {
       <br>
     Documento de identidad:<br>
     <input type="text"class="form-control" name="doc_id"> <br>
+    <input type="hidden" name="edificio" value="0"> <br>
     <input type="submit" class="btn btn-default btn-lg btn-block"value="Registrar">
 
 
