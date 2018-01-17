@@ -2,7 +2,7 @@
 class usuarios_controlador
 {
 
-  function registrar_usuario($nombre,$pass1,$pass2,$telefono,$edificio,$tipo,$doc_id,$id)
+  function registrar_usuario($nombre,$pass1,$pass2,$telefono,$edificio,$tipo,$doc_id)
   {
     $modelo=new datos_modelo();
     if ($pass1!=$pass2) {
